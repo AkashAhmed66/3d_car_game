@@ -1,0 +1,22 @@
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: nextjs-frontend:latest
+
+    container_name: nextjs-frontend
+
+    ports:
+      - "3000:3000"
+
+    restart: unless-stopped
+
+    init: true
+
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      HOSTNAME: "0.0.0.0"
